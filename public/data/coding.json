@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "emoji": "⚛️",
+    "icon": "ti ti-brand-javascript",
+    "title": "JavaScript / React",
+    "shortDesc": "Modern frontend & backend with React 18 and Node.js ecosystem.",
+    "tagStyle": "mern",
+    "skills": [
+      { "name": "React 18", "level": 90 },
+      { "name": "Node.js / Express", "level": 88 },
+      { "name": "TypeScript", "level": 80 },
+      { "name": "Redux Toolkit", "level": 85 },
+      { "name": "Next.js", "level": 78 },
+      { "name": "Socket.io", "level": 82 }
+    ],
+    "overview": "Expert-level proficiency in the JavaScript ecosystem. I build production-grade SPAs with React, scalable REST APIs with Node/Express, and real-time applications with Socket.io.",
+    "sampleTitle": "React Custom Hook",
+    "sampleCode": "import { useState, useEffect } from 'react';\n\nfunction useFetch(url) {\n  const [data,    setData]    = useState(null);\n  const [loading, setLoading] = useState(true);\n  const [error,   setError]   = useState(null);\n\n  useEffect(() => {\n    fetch(url)\n      .then(res => res.json())\n      .then(json => { setData(json); setLoading(false); })\n      .catch(err => { setError(err); setLoading(false); });\n  }, [url]);\n\n  return { data, loading, error };\n}\n\nexport default useFetch;",
+    "projects": ["E-Commerce Platform", "Real-Time Chat App"],
+    "tools": ["Vite", "Webpack", "ESLint", "Jest", "Axios", "React Query"]
+  },
+  {
+    "id": 2,
+    "emoji": "🐘",
+    "icon": "ti ti-brand-php",
+    "title": "PHP / Laravel",
+    "shortDesc": "Robust backend APIs and full-stack apps with Laravel framework.",
+    "tagStyle": "php",
+    "skills": [
+      { "name": "PHP 8.x", "level": 88 },
+      { "name": "Laravel 10", "level": 88 },
+      { "name": "MySQL", "level": 85 },
+      { "name": "Eloquent ORM", "level": 87 },
+      { "name": "Laravel Livewire", "level": 80 },
+      { "name": "Sanctum / Passport", "level": 85 }
+    ],
+    "overview": "Deep expertise in PHP and the Laravel ecosystem. From RESTful APIs with Sanctum auth to full-stack Livewire apps, I build clean, maintainable Laravel applications following SOLID principles.",
+    "sampleTitle": "Laravel API Controller",
+    "sampleCode": "class PostController extends Controller\n{\n    public function index()\n    {\n        $posts = Post::with('author')\n            ->latest()\n            ->paginate(15);\n        return PostResource::collection($posts);\n    }\n\n    public function store(StorePostRequest $request)\n    {\n        $post = Post::create([\n            ...$request->validated(),\n            'author_id' => auth()->id(),\n        ]);\n        return new PostResource($post);\n    }\n}",
+    "projects": ["Hospital Management System"],
+    "tools": ["Composer", "Artisan", "DomPDF", "Spatie Permissions", "Laravel Scout"]
+  },
+  {
+    "id": 3,
+    "emoji": "🪟",
+    "icon": "ti ti-brand-windows",
+    "title": ".NET / C#",
+    "shortDesc": "Enterprise apps with ASP.NET Core, EF Core, and Azure cloud.",
+    "tagStyle": "net",
+    "skills": [
+      { "name": "C# 11", "level": 80 },
+      { "name": "ASP.NET Core 7", "level": 80 },
+      { "name": "Entity Framework", "level": 78 },
+      { "name": "SQL Server", "level": 82 },
+      { "name": "Azure Services", "level": 75 },
+      { "name": "Docker / CI-CD", "level": 75 }
+    ],
+    "overview": "Solid enterprise development skills with ASP.NET Core. I build MVC applications, Minimal APIs, and integrate Azure services. Comfortable with both traditional controller-based and modern Minimal API approaches.",
+    "sampleTitle": "ASP.NET Minimal API",
+    "sampleCode": "var builder = WebApplication.CreateBuilder(args);\nbuilder.Services.AddDbContext<AppDb>(o =>\n    o.UseSqlServer(builder.Configuration\n        .GetConnectionString(\"Default\")));\nvar app = builder.Build();\n\napp.MapGet(\"/products\", async (AppDb db) =>\n    await db.Products.ToListAsync());\n\napp.MapPost(\"/products\", async (Product p, AppDb db) => {\n    db.Products.Add(p);\n    await db.SaveChangesAsync();\n    return Results.Created($\"/products/{p.Id}\", p);\n});\n\napp.Run();",
+    "projects": ["Enterprise ERP System"],
+    "tools": ["Azure DevOps", "SSRS", "Swagger", "xUnit", "SignalR", "Dapper"]
+  },
+  {
+    "id": 4,
+    "emoji": "🎨",
+    "icon": "ti ti-palette",
+    "title": "Frontend / UI",
+    "shortDesc": "Pixel-perfect responsive UIs with Tailwind CSS and modern CSS.",
+    "tagStyle": "mern",
+    "skills": [
+      { "name": "HTML5 / CSS3", "level": 95 },
+      { "name": "Tailwind CSS", "level": 92 },
+      { "name": "JavaScript ES6+", "level": 90 },
+      { "name": "SCSS / Sass", "level": 82 },
+      { "name": "Figma", "level": 78 },
+      { "name": "Framer Motion", "level": 70 }
+    ],
+    "overview": "Strong eye for design and deep knowledge of modern CSS. I craft pixel-perfect, responsive interfaces using Tailwind CSS and vanilla CSS animations. From dark-mode dashboards to landing pages.",
+    "sampleTitle": "Tailwind Card Component",
+    "sampleCode": "const Card = ({ title, desc, tags }) => (\n  <div className=\"bg-slate-900 border border-cyan-500/20\n    rounded-xl p-5 hover:border-cyan-500/50\n    hover:-translate-y-1 transition-all duration-300\n    cursor-pointer group\">\n    <h3 className=\"font-bold text-cyan-400 mb-2\">\n      {title}\n    </h3>\n    <p className=\"text-slate-400 text-sm\">{desc}</p>\n    <div className=\"flex gap-2 mt-3\">\n      {tags.map(t => (\n        <span key={t}\n          className=\"px-2 py-0.5 text-xs border\n            border-cyan-500/30 rounded-full text-cyan-300\">\n          {t}\n        </span>\n      ))}\n    </div>\n  </div>\n);",
+    "projects": ["All Web Projects"],
+    "tools": ["Tailwind CSS", "Figma", "Adobe XD", "Animate.css", "GSAP"]
+  },
+  {
+    "id": 5,
+    "emoji": "🐳",
+    "icon": "ti ti-brand-docker",
+    "title": "DevOps / Tools",
+    "shortDesc": "Docker, Git, CI/CD pipelines, Linux server management.",
+    "tagStyle": "net",
+    "skills": [
+      { "name": "Docker / Compose", "level": 78 },
+      { "name": "Git / GitHub", "level": 90 },
+      { "name": "Linux / Bash", "level": 80 },
+      { "name": "MySQL / PostgreSQL", "level": 85 },
+      { "name": "Redis", "level": 75 },
+      { "name": "GitHub Actions", "level": 72 }
+    ],
+    "overview": "Comfortable with the full DevOps workflow: containerizing apps with Docker, version control with Git, setting up CI/CD pipelines, and managing Linux VPS servers. I ship code reliably.",
+    "sampleTitle": "Docker Compose Setup",
+    "sampleCode": "version: '3.9'\nservices:\n  app:\n    build: .\n    volumes:\n      - .:/var/www/html\n    depends_on: [db, redis]\n\n  nginx:\n    image: nginx:alpine\n    ports: [\"80:80\",\"443:443\"]\n    volumes:\n      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf\n\n  db:\n    image: mysql:8.0\n    environment:\n      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}\n    volumes:\n      - mysql_data:/var/lib/mysql\n\n  redis:\n    image: redis:alpine\n\nvolumes:\n  mysql_data:",
+    "projects": ["All Deployed Projects"],
+    "tools": ["Docker", "Nginx", "PM2", "GitHub Actions", "Railway", "Vercel"]
+  },
+  {
+    "id": 6,
+    "emoji": "🗄️",
+    "icon": "ti ti-database",
+    "title": "Databases",
+    "shortDesc": "Relational and NoSQL databases: MySQL, MongoDB, PostgreSQL, Redis.",
+    "tagStyle": "php",
+    "skills": [
+      { "name": "MySQL", "level": 88 },
+      { "name": "MongoDB", "level": 85 },
+      { "name": "PostgreSQL", "level": 80 },
+      { "name": "Redis", "level": 75 },
+      { "name": "Elasticsearch", "level": 68 },
+      { "name": "Database Design", "level": 87 }
+    ],
+    "overview": "Strong database design and query optimization skills across both relational (MySQL, PostgreSQL, SQL Server) and NoSQL (MongoDB, Redis) databases. I design normalized schemas and write efficient complex queries.",
+    "sampleTitle": "Optimized MySQL Query",
+    "sampleCode": "-- Complex JOIN with aggregation\nSELECT \n  u.id,\n  u.name,\n  COUNT(o.id)          AS total_orders,\n  SUM(o.total_amount)  AS lifetime_value,\n  MAX(o.created_at)    AS last_order_date\nFROM users u\nINNER JOIN orders o ON o.user_id = u.id\nWHERE o.status = 'completed'\n  AND o.created_at >= DATE_SUB(NOW(), INTERVAL 1 YEAR)\nGROUP BY u.id, u.name\nHAVING total_orders >= 3\nORDER BY lifetime_value DESC\nLIMIT 100;",
+    "projects": ["All Backend Projects"],
+    "tools": ["MySQL Workbench", "MongoDB Compass", "TablePlus", "pgAdmin", "DBeaver"]
+  }
+]

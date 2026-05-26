@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "emoji": "🔀",
+    "icon": "ti ti-router",
+    "title": "Router Config",
+    "shortDesc": "Cisco router setup with OSPF, DHCP, NAT/PAT and ACL security.",
+    "tagStyle": "network",
+    "previewCode": "Router> enable\nRouter# configure terminal\nRouter(config)# hostname R1\n! Configure interface\nRouter(config)# int fa0/0\nRouter(config-if)# ip address 192.168.1.1 255.255.255.0",
+    "skills": [
+      { "name": "Cisco IOS CLI", "level": 90 },
+      { "name": "Static / Default Routing", "level": 92 },
+      { "name": "OSPF / RIP / EIGRP", "level": 85 },
+      { "name": "NAT / PAT", "level": 88 },
+      { "name": "DHCP Server", "level": 90 },
+      { "name": "BGP Basics", "level": 72 }
+    ],
+    "overview": "Complete mastery of Cisco router configuration: from basic interface setup and static routing to dynamic routing protocols (OSPF, EIGRP), NAT/PAT for internet sharing, DHCP pools, and access control lists.",
+    "fullCode": "Router> enable\nRouter# configure terminal\nRouter(config)# hostname R1\n\n! Configure WAN interface\nRouter(config)# interface GigabitEthernet0/0\nRouter(config-if)# ip address 203.0.113.1 255.255.255.0\nRouter(config-if)# ip nat outside\nRouter(config-if)# no shutdown\n\n! Configure LAN interface\nRouter(config)# interface GigabitEthernet0/1\nRouter(config-if)# ip address 192.168.1.1 255.255.255.0\nRouter(config-if)# ip nat inside\nRouter(config-if)# no shutdown\n\n! DHCP Pool\nRouter(config)# ip dhcp pool LAN_POOL\nRouter(dhcp-config)# network 192.168.1.0 255.255.255.0\nRouter(dhcp-config)# default-router 192.168.1.1\nRouter(dhcp-config)# dns-server 8.8.8.8 8.8.4.4\n\n! NAT/PAT\nRouter(config)# access-list 1 permit 192.168.1.0 0.0.0.255\nRouter(config)# ip nat inside source list 1 interface Gi0/0 overload\n\n! OSPF\nRouter(config)# router ospf 1\nRouter(config-router)# network 192.168.1.0 0.0.0.255 area 0\nRouter(config-router)# passive-interface GigabitEthernet0/1",
+    "certifications": ["CCNA (Cisco Certified Network Associate)"]
+  },
+  {
+    "id": 2,
+    "emoji": "🔌",
+    "icon": "ti ti-switch",
+    "title": "Switch / VLAN",
+    "shortDesc": "VLAN creation, trunk ports, inter-VLAN routing and port security.",
+    "tagStyle": "network",
+    "previewCode": "Switch# conf t\n! Create VLANs\nSwitch(config)# vlan 10\nSwitch(config-vlan)# name SALES\nSwitch(config)# vlan 20\nSwitch(config-vlan)# name IT_DEPT",
+    "skills": [
+      { "name": "VLAN Creation", "level": 95 },
+      { "name": "802.1Q Trunking", "level": 92 },
+      { "name": "Inter-VLAN Routing", "level": 88 },
+      { "name": "STP / RSTP", "level": 85 },
+      { "name": "Port Security", "level": 87 },
+      { "name": "EtherChannel", "level": 78 }
+    ],
+    "overview": "Expert VLAN configuration on Cisco Catalyst switches. I design and implement VLAN segmentation for department isolation, configure 802.1Q trunk links, set up Router-on-a-Stick for inter-VLAN routing, and harden switches with port security.",
+    "fullCode": "Switch# configure terminal\n\n! Create VLANs\nSwitch(config)# vlan 10\nSwitch(config-vlan)# name MANAGEMENT\nSwitch(config)# vlan 20\nSwitch(config-vlan)# name SALES\nSwitch(config)# vlan 30\nSwitch(config-vlan)# name IT_DEPT\nSwitch(config)# vlan 40\nSwitch(config-vlan)# name GUEST\n\n! Access ports\nSwitch(config)# interface range Fa0/1 - 5\nSwitch(config-if-range)# switchport mode access\nSwitch(config-if-range)# switchport access vlan 20\nSwitch(config-if-range)# spanning-tree portfast\nSwitch(config-if-range)# switchport port-security maximum 2\nSwitch(config-if-range)# switchport port-security violation restrict\n\n! Trunk to router\nSwitch(config)# interface GigabitEthernet0/1\nSwitch(config-if)# switchport mode trunk\nSwitch(config-if)# switchport trunk allowed vlan 10,20,30,40\nSwitch(config-if)# switchport trunk native vlan 10\n\n! STP root bridge\nSwitch(config)# spanning-tree vlan 10,20,30,40 root primary",
+    "certifications": ["CCNA (Switching & Routing)"]
+  },
+  {
+    "id": 3,
+    "emoji": "🛡️",
+    "icon": "ti ti-shield",
+    "title": "Firewall / ACL",
+    "shortDesc": "Named extended ACLs, zone-based firewall, DMZ design and NAT.",
+    "tagStyle": "sec",
+    "previewCode": "! Extended ACL\nRouter(config)# ip access-list extended WEB_FILTER\nRouter(config-ext-nacl)# permit tcp any\n  host 192.168.1.10 eq 80\nRouter(config-ext-nacl)# deny ip any any log",
+    "skills": [
+      { "name": "Standard ACL", "level": 95 },
+      { "name": "Extended ACL", "level": 92 },
+      { "name": "Cisco ASA Firewall", "level": 82 },
+      { "name": "DMZ Design", "level": 85 },
+      { "name": "NAT / Static NAT", "level": 88 },
+      { "name": "Zone-Based Firewall", "level": 78 }
+    ],
+    "overview": "Deep expertise in network security configuration. I design ACL rule sets to permit/deny traffic at a granular level, configure DMZ zones on Cisco ASA firewalls, implement NAT/PAT, and apply rate-limiting to mitigate common attack vectors.",
+    "fullCode": "! Named Extended ACL – Inbound on WAN\nip access-list extended OUTSIDE_TO_DMZ\n  remark -- Allow HTTP/S to web server --\n  permit tcp any host 192.168.2.10 eq 80\n  permit tcp any host 192.168.2.10 eq 443\n  remark -- Allow DNS queries --\n  permit udp any host 192.168.2.20 eq 53\n  remark -- Block everything else --\n  deny   ip any any log\n\n! Named Extended ACL – Inbound on LAN  \nip access-list extended INSIDE_TO_OUT\n  permit tcp 192.168.1.0 0.0.0.255 any eq 80\n  permit tcp 192.168.1.0 0.0.0.255 any eq 443\n  permit tcp 192.168.1.0 0.0.0.255 any eq 587\n  deny   tcp 192.168.1.0 0.0.0.255 any eq 23 log\n  permit ip 192.168.1.0 0.0.0.255 any\n\n! Apply to interfaces\ninterface GigabitEthernet0/0\n  ip access-group OUTSIDE_TO_DMZ in\ninterface GigabitEthernet0/1\n  ip access-group INSIDE_TO_OUT in",
+    "certifications": ["CCNA Security Fundamentals"]
+  },
+  {
+    "id": 4,
+    "emoji": "📡",
+    "icon": "ti ti-topology-star",
+    "title": "Network Skills Overview",
+    "shortDesc": "Full networking skill matrix: routing, switching, security, wireless.",
+    "tagStyle": "network",
+    "previewCode": "! Skill matrix overview\n! Cisco IOS      ████████░░  88%\n! VLAN Routing   █████████░  90%\n! Net Security   ████████░░  82%\n! Packet Tracer  █████████░  92%",
+    "skills": [
+      { "name": "Cisco IOS", "level": 88 },
+      { "name": "VLAN / 802.1Q", "level": 90 },
+      { "name": "OSPF / RIP / EIGRP", "level": 85 },
+      { "name": "Network Security", "level": 82 },
+      { "name": "Wireless / WiFi", "level": 78 },
+      { "name": "Packet Tracer / GNS3", "level": 92 },
+      { "name": "Wireshark", "level": 80 },
+      { "name": "Firewall / ACL", "level": 83 }
+    ],
+    "overview": "Comprehensive networking knowledge spanning all OSI layers. Comfortable with both theoretical exam-level concepts (CCNA) and real-world implementation in enterprise environments and Cisco Packet Tracer simulations.",
+    "fullCode": "! Certifications\nCCNA  - Cisco Certified Network Associate\nNet+  - CompTIA Network+ (In Progress)\n\n! Tools\nPacket Tracer 8.x  - Network simulation\nGNS3               - Advanced emulation\nWireshark          - Traffic analysis\nNmap               - Network scanning\nZabbix             - Monitoring\nSolarWinds         - Network management\n\n! Key Topics Mastered\nOSI Model & TCP/IP Stack\nIPv4 / IPv6 Addressing & Subnetting\nStatic, Default & Dynamic Routing\nVLAN Segmentation & Trunking\nSTP, RSTP & EtherChannel\nNAT, PAT & Port Forwarding\nACL – Standard, Extended & Named\nVPN – Site-to-Site & Remote Access\nWireless – WPA2/3, WLC, WAP Config\nNetwork Monitoring & Troubleshooting",
+    "certifications": ["CCNA", "CompTIA Network+ (In Progress)"]
+  }
+]

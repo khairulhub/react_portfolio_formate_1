@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "emoji": "🛒",
+    "title": "E-Commerce Platform",
+    "shortDesc": "Full-stack e-commerce with React, Node.js, MongoDB. Payment integration, admin panel.",
+    "tags": ["React", "Node.js", "MongoDB", "Stripe"],
+    "tagStyle": "mern",
+    "duration": "3 Months",
+    "status": "Live",
+    "overview": "A full-featured e-commerce platform built with the MERN stack. Includes product catalog, shopping cart, secure payment processing via Stripe, and a comprehensive admin dashboard for inventory and order management.",
+    "features": [
+      "JWT authentication with role-based access (Admin / User)",
+      "Stripe payment integration with webhook verification",
+      "Real-time inventory tracking with stock alerts",
+      "Image upload with Cloudinary CDN",
+      "Order tracking and email notifications via Nodemailer"
+    ],
+    "stack": "Frontend  : React 18, Redux Toolkit, Tailwind CSS\nBackend   : Node.js, Express.js, Mongoose\nDatabase  : MongoDB Atlas\nPayment   : Stripe API + Webhooks\nStorage   : Cloudinary\nAuth      : JWT + bcryptjs\nDeploy    : Vercel (FE) + Railway (BE)",
+    "github": "https://github.com/khairulhub",
+    "live": "#"
+  },
+  {
+    "id": 2,
+    "emoji": "🏥",
+    "title": "Hospital Management",
+    "shortDesc": "Laravel-based hospital management system with patient records, appointments, billing.",
+    "tags": ["Laravel", "MySQL", "PHP", "Livewire"],
+    "tagStyle": "php",
+    "duration": "4 Months",
+    "status": "Live",
+    "overview": "A comprehensive hospital management system developed with Laravel. Manages patient registrations, doctor schedules, appointments, billing, and pharmacy inventory in a unified dashboard.",
+    "features": [
+      "Multi-role system: Admin, Doctor, Nurse, Pharmacist, Patient",
+      "Appointment booking with calendar view and reminders",
+      "Electronic health records (EHR) with lab reports",
+      "Billing and invoice generation (PDF export)",
+      "Pharmacy stock management with expiry alerts"
+    ],
+    "stack": "Framework : Laravel 10 + Livewire\nDatabase  : MySQL 8.0\nFrontend  : Blade + Bootstrap 5\nAuth      : Laravel Breeze (multi-guard)\nReports   : DomPDF\nDeploy    : cPanel shared hosting",
+    "github": "https://github.com/khairulhub",
+    "live": "#"
+  },
+  {
+    "id": 3,
+    "emoji": "🏢",
+    "title": "Enterprise ERP",
+    "shortDesc": ".NET Core ERP system for manufacturing. Inventory, HR, payroll, and reporting modules.",
+    "tags": ["ASP.NET", "C#", "Azure", "SQL Server"],
+    "tagStyle": "net",
+    "duration": "6 Months",
+    "status": "Live",
+    "overview": "An enterprise ERP system for a manufacturing company built with ASP.NET Core. Modules include inventory management, HR, payroll, purchase orders, sales, and financial reporting.",
+    "features": [
+      "Inventory with batch tracking and warehouse management",
+      "HR module: attendance, leave management, payroll",
+      "Real-time dashboards with Chart.js analytics",
+      "Azure Active Directory SSO integration",
+      "SSRS reports and Excel export functionality"
+    ],
+    "stack": "Framework : ASP.NET Core 7 (MVC)\nLanguage  : C# 11\nDatabase  : SQL Server 2022 + EF Core\nAuth      : Azure AD + Identity\nCloud     : Azure App Service + Blob Storage\nCI/CD     : Azure DevOps Pipelines",
+    "github": "https://github.com/khairulhub",
+    "live": "#"
+  },
+  {
+    "id": 4,
+    "emoji": "🌐",
+    "title": "Campus Network Design",
+    "shortDesc": "Multi-building campus network with VLANs, inter-VLAN routing, redundancy, and APs.",
+    "tags": ["Cisco", "VLAN", "OSPF", "STP"],
+    "tagStyle": "network",
+    "duration": "2 Months",
+    "status": "Deployed",
+    "overview": "Designed and deployed a multi-building campus network for a university. Architecture covers 5 buildings with redundant core switches, inter-VLAN routing, and wireless access points throughout campus.",
+    "features": [
+      "99.9% uptime with redundant paths and HSRP",
+      "Isolated guest network with captive portal",
+      "QoS policies for VoIP and video conferencing",
+      "Network monitoring with SNMP + Zabbix",
+      "Dual ISP with BGP failover for internet redundancy"
+    ],
+    "stack": "Core Layer    : 2x Cisco Catalyst 3750 (stacked)\nDistribution  : 4x Cisco 2960 per building\nAccess Layer  : Unmanaged switches + WAPs\nRouting       : OSPF Area 0 (backbone)\nVLANs         : 10-Admin, 20-Faculty, 30-Student\n               40-Library, 50-Lab, 60-Guest\nRedundancy    : STP + HSRP for gateway failover",
+    "github": null,
+    "live": null
+  },
+  {
+    "id": 5,
+    "emoji": "💬",
+    "title": "Real-Time Chat App",
+    "shortDesc": "WebSocket-based real-time chat with rooms, file sharing, notifications, and encryption.",
+    "tags": ["React", "Socket.io", "Redis", "Node.js"],
+    "tagStyle": "mern",
+    "duration": "2 Months",
+    "status": "Live",
+    "overview": "A full-featured real-time messaging application with private DMs, group rooms, file sharing, read receipts, and end-to-end encryption. Built with WebSockets and Redis pub/sub for scalability.",
+    "features": [
+      "Real-time messaging with Socket.io + Redis adapter",
+      "End-to-end encryption using libsodium",
+      "File sharing (images, PDFs) via S3-compatible storage",
+      "Push notifications via Firebase FCM",
+      "Message search with Elasticsearch"
+    ],
+    "stack": "Frontend  : React 18 + Vite, Zustand\nBackend   : Node.js + Express + Socket.io\nCache     : Redis (sessions + pub/sub)\nDatabase  : MongoDB (messages) + PostgreSQL (users)\nSearch    : Elasticsearch\nDeploy    : Docker Compose on VPS",
+    "github": "https://github.com/khairulhub",
+    "live": "#"
+  },
+  {
+    "id": 6,
+    "emoji": "🔒",
+    "title": "Firewall System",
+    "shortDesc": "Enterprise firewall and DMZ design with ACL rules, NAT configuration, and intrusion detection.",
+    "tags": ["ASA", "ACL", "DMZ", "NAT"],
+    "tagStyle": "sec",
+    "duration": "1 Month",
+    "status": "Deployed",
+    "overview": "Designed and implemented an enterprise firewall solution using Cisco ASA 5505. Created a 3-zone DMZ architecture separating public servers, internal network, and untrusted internet traffic.",
+    "features": [
+      "3-zone DMZ architecture (inside / DMZ / outside)",
+      "Named extended ACLs with logging for audit trail",
+      "Static NAT for DMZ servers, PAT for internal users",
+      "IDS/IPS integration for threat detection",
+      "Rate-limiting ICMP to prevent ping flood attacks"
+    ],
+    "stack": "interface GigabitEthernet0/0\n  nameif outside     security-level 0\ninterface GigabitEthernet0/1\n  nameif inside      security-level 100\ninterface GigabitEthernet0/2\n  nameif dmz         security-level 50\n\nobject network WEB_SERVER\n  host 192.168.2.10\n  nat (dmz,outside) static 203.0.113.5",
+    "github": null,
+    "live": null
+  }
+]

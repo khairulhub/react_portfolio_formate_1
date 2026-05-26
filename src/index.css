@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.15); border-radius: 4px; }
+
+@keyframes spin        { to { transform: rotate(360deg); } }
+@keyframes pulse       { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes glow        { from{text-shadow:0 0 20px rgba(0,229,255,.3)} to{text-shadow:0 0 60px rgba(0,229,255,.7)} }
+@keyframes blink       { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes photoScan   { 0%{top:0;opacity:0} 10%{opacity:.4} 90%{opacity:.4} 100%{top:100%;opacity:0} }

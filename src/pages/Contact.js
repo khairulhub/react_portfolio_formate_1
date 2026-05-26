@@ -6,7 +6,7 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HER
 
 const INFO = [
   { icon: 'ti ti-map-pin',      label: 'LOCATION',     val: 'Dhaka, Bangladesh', color: null },
-  { icon: 'ti ti-mail',         label: 'EMAIL',        val: 'khairul@khairulhub.com', color: null },
+  { icon: 'ti ti-mail',         label: 'EMAIL',        val: 'iubat21103033@gmail.com', color: null },
   { icon: 'ti ti-brand-github', label: 'GITHUB',       val: 'github.com/khairulhub', color: null },
   { icon: 'ti ti-brand-linkedin',label: 'LINKEDIN',    val: 'linkedin.com/in/khairulhub', color: null },
   { icon: 'ti ti-clock',        label: 'AVAILABILITY', val: '● Open for Work', color: '#00ff88' },
